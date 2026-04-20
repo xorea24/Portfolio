@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root {
+    --bg-color: #050505;
+    --text-color: #ffffff;
+    --accent-color: #00f2ff;
+    --secondary-accent: #7000ff;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Background Animation */
+.bg-glow {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--secondary-accent) 0%, transparent 70%);
+    filter: blur(120px);
+    opacity: 0.15;
+    z-index: -1;
+    animation: pulse 10s infinite alternate;
+}
+
+@keyframes pulse {
+    from { transform: translate(-50%, -50%) scale(1); opacity: 0.1; }
+    to { transform: translate(-55%, -45%) scale(1.2); opacity: 0.2; }
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.5rem 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    background: rgba(5, 5, 5, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(to right, var(--accent-color), var(--secondary-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: 0.3s;
+    opacity: 0.8;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+    opacity: 1;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 10%;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 2rem;
+    border: 4px solid var(--glass-border);
+    box-shadow: 0 0 30px rgba(112, 0, 255, 0.3);
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #aaa;
+    max-width: 600px;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    padding: 0.8rem 2rem;
+    background: linear-gradient(45deg, var(--secondary-accent), var(--accent-color));
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 242, 255, 0.2);
+}
+
+/* Sections */
+section {
+    padding: 100px 10%;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+/* Projects Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: 0.3s;
+    backdrop-filter: blur(10px);
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-color);
+}
+
+.project-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-info {
+    padding: 1.5rem;
+}
+
+.project-info h3 {
+    margin-bottom: 0.5rem;
+}
+
+.project-info p {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 1rem;
+}
+
+/* Contact */
+.contact-container {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+footer {
+    padding: 2rem;
+    text-align: center;
+    border-top: 1px solid var(--glass-border);
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    nav { display: none; }
+}
