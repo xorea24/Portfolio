@@ -4,9 +4,16 @@
     --bg-color: #050505;
     --text-color: #ffffff;
     --accent-color: #00f2ff;
-    --secondary-accent: #7000ff;
+    --secondary-accent: #000000;
     --glass-bg: rgba(255, 255, 255, 0.05);
     --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+body.light-mode {
+    --bg-color: #f8fafc;
+    --text-color: #0f172a;
+    --glass-bg: rgba(0, 0, 0, 0.05);
+    --glass-border: rgba(0, 0, 0, 0.1);
 }
 
 * {
@@ -23,25 +30,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Background Animation */
-.bg-glow {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, var(--secondary-accent) 0%, transparent 70%);
-    filter: blur(120px);
-    opacity: 0.15;
-    z-index: -1;
-    animation: pulse 10s infinite alternate;
-}
-
-@keyframes pulse {
-    from { transform: translate(-50%, -50%) scale(1); opacity: 0.1; }
-    to { transform: translate(-55%, -45%) scale(1.2); opacity: 0.2; }
-}
+/* Main Styles */
 
 /* Header */
 header {
@@ -56,6 +45,10 @@ header {
     background: rgba(5, 5, 5, 0.8);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--glass-border);
+}
+
+body.light-mode header {
+    background: rgba(248, 250, 252, 0.8);
 }
 
 .logo {
@@ -167,6 +160,11 @@ section {
     backdrop-filter: blur(10px);
 }
 
+body.light-mode .project-card {
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
 .project-card:hover {
     transform: translateY(-10px);
     border-color: var(--accent-color);
@@ -209,6 +207,32 @@ footer {
 
 /* Responsive */
 @media (max-width: 768px) {
-    .hero h1 { font-size: 2.5rem; }
-    nav { display: none; }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    nav {
+        display: none;
+    }
+}
+
+/* Light Mode Overrides */
+body.light-mode .hero p,
+body.light-mode #about p,
+body.light-mode .project-info p,
+body.light-mode footer,
+body.light-mode .contact-container p {
+    color: #475569 !important;
+}
+
+body.light-mode nav ul li a {
+    color: var(--text-color);
+}
+
+body.light-mode a.btn {
+    color: #ffffff !important;
+}
+
+body.light-mode a.btn {
+    color: #ffffff !important;
 }
